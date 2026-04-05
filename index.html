@@ -247,6 +247,7 @@ img { display:block; max-width:100%; }
   margin-bottom:4px;
 }
 .num-card .num.warm { color:var(--warm); }
+.num-card .num.green { color:var(--green); }
 .num-card .nl {
   font-size:11px;
   color:var(--w40);
@@ -834,6 +835,174 @@ img { display:block; max-width:100%; }
 .ps-table td { color:var(--w60); }
 .ps-table td:first-child { color:var(--white); font-weight:600; }
 
+/* ---- PROGRESS CARDS ---- */
+.progress-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-bottom:40px;
+}
+@media(max-width:640px){.progress-grid{grid-template-columns:1fr;}}
+.progress-card {
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+}
+.progress-card::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:3px;
+  border-radius:var(--r) var(--r) 0 0;
+  background:linear-gradient(90deg,var(--green),#7AB89A);
+}
+.progress-card h4 { font-size:17px;font-weight:700;margin-bottom:6px;color:var(--green); }
+.progress-card p { font-size:14px;color:var(--w60);line-height:1.6; }
+
+/* ---- MEETINGS TRACKER ---- */
+.meetings-track {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:40px 0;
+}
+@media(max-width:640px){.meetings-track{grid-template-columns:1fr;}}
+.meet-card {
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+}
+.meet-card .meet-num {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:48px;
+  font-weight:700;
+  color:rgba(196,180,150,0.08);
+  position:absolute;
+  top:12px;right:16px;
+  line-height:1;
+}
+.meet-card .meet-date {
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:600;
+  color:var(--warm-dark);
+  margin-bottom:6px;
+}
+.meet-card h4 { font-size:15px;font-weight:700;margin-bottom:6px; }
+.meet-card p { font-size:12px;color:var(--w40);line-height:1.55; }
+.meet-card.done { border-color:rgba(90,154,122,0.2); }
+.meet-card.done .meet-date { color:var(--green); }
+
+/* ---- EQUIPMENT TABLE ---- */
+.eq-table {
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  border-radius:var(--r);
+  border:1px solid var(--glass-border);
+  overflow:hidden;
+  margin:40px 0;
+}
+.eq-table th,.eq-table td {
+  padding:14px 20px;
+  text-align:left;
+  font-size:13px;
+  border-bottom:1px solid var(--glass-border);
+  vertical-align:top;
+}
+.eq-table th {
+  background:var(--surface-2);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  color:var(--w40);
+  font-weight:600;
+}
+.eq-table tr:last-child td { border-bottom:none; }
+.eq-table td { color:var(--w60); }
+.eq-table td:first-child { color:var(--white); font-weight:600; }
+.eq-status { font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;display:inline-block; }
+.eq-status.own { background:var(--green-bg);color:var(--green);border:1px solid var(--green-border); }
+.eq-status.rent { background:var(--orange-bg);color:var(--orange);border:1px solid var(--orange-border); }
+
+/* ---- COMMERCIAL RULES ---- */
+.rule-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:40px 0;
+}
+@media(max-width:640px){.rule-grid{grid-template-columns:1fr;}}
+.rule-card {
+  padding:28px;
+  position:relative;
+  overflow:hidden;
+}
+.rule-card::after {
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:3px;height:100%;
+  border-radius:0 4px 4px 0;
+  background:var(--warm-dark);
+}
+.rule-card h4 { font-size:15px;font-weight:600;margin-bottom:8px;color:var(--warm); }
+.rule-card p { font-size:13px;color:var(--w40);line-height:1.65; }
+
+/* ---- PACKAGES ---- */
+.pkg-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:40px 0;
+}
+@media(max-width:700px){.pkg-grid{grid-template-columns:1fr;}}
+.pkg-card {
+  padding:32px 28px;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+.pkg-card::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:3px;
+  border-radius:var(--r) var(--r) 0 0;
+}
+.pkg-card.pkg-basic::before { background:var(--accent); }
+.pkg-card.pkg-inter::before { background:var(--warm); }
+.pkg-card.pkg-premium::before { background:linear-gradient(90deg,var(--warm-dark),var(--warm)); }
+.pkg-label {
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+.pkg-card.pkg-basic .pkg-label { color:var(--accent); }
+.pkg-card.pkg-inter .pkg-label { color:var(--warm); }
+.pkg-card.pkg-premium .pkg-label { color:var(--warm-dark); }
+.pkg-card h3 { font-size:28px;font-weight:700;margin-bottom:4px; }
+.pkg-card .pkg-period { font-size:13px;color:var(--w40);margin-bottom:16px; }
+.pkg-card ul { list-style:none;padding:0;text-align:left; }
+.pkg-card ul li {
+  font-size:13px;
+  color:var(--w60);
+  padding:6px 0;
+  border-bottom:1px solid var(--glass-border);
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  line-height:1.5;
+}
+.pkg-card ul li:last-child { border-bottom:none; }
+.pkg-card ul li::before { content:'';width:5px;height:5px;border-radius:50%;margin-top:7px;flex-shrink:0; }
+.pkg-card.pkg-basic ul li::before { background:var(--accent); }
+.pkg-card.pkg-inter ul li::before { background:var(--warm); }
+.pkg-card.pkg-premium ul li::before { background:var(--warm-dark); }
+
 /* ---- RESPONSIVE ---- */
 @media(max-width:640px){
   .hero{min-height:auto;}
@@ -843,6 +1012,8 @@ img { display:block; max-width:100%; }
   .f-step{flex-direction:column;gap:6px;}
   .f-num{width:32px;height:32px;}
   .photo-break{height:300px;}
+  .meetings-track{grid-template-columns:1fr;}
+  .pkg-grid{grid-template-columns:1fr;}
 }
 
 @media print {
@@ -867,7 +1038,76 @@ img { display:block; max-width:100%; }
       <div class="meta-pill"><strong>Cirurgia Vascular</strong></div>
       <div class="meta-pill"><strong>Porto Alegre</strong> — RS</div>
       <div class="meta-pill">Shopping <strong>Barra do Papo</strong></div>
-      <div class="meta-pill"><strong>Abril 2026</strong></div>
+      <div class="meta-pill"><strong>Abril 2026</strong> — v3</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ REUNIOES TRACKER ============ -->
+<section class="section" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label label-warm">Historico de Reunioes</div>
+      <h2>Jornada da<br>Mentoria</h2>
+      <p>Cada reuniao e um passo a mais na construcao do Cirurgiao Particular Premium.</p>
+    </div>
+
+    <div class="meetings-track">
+      <div class="glass-card meet-card done">
+        <div class="meet-num">01</div>
+        <div class="meet-date">19/03/2026</div>
+        <h4>Diagnostico Completo</h4>
+        <p>Mapeamento do Ponto A, analise de Instagram, time, metricas e posicionamento. Construcao do Mapa do Tesouro original.</p>
+      </div>
+      <div class="glass-card meet-card done">
+        <div class="meet-num">02</div>
+        <div class="meet-date">26/03/2026</div>
+        <h4>Produto + ICP + Nomes</h4>
+        <p>Construcao do protocolo de lipedema, perfil da paciente ideal, 4 sugestoes de nome, estrutura do time e roadmap completo.</p>
+      </div>
+      <div class="glass-card meet-card done">
+        <div class="meet-num">03</div>
+        <div class="meet-date">02/04/2026</div>
+        <h4>Devolutiva + Comercial</h4>
+        <p>Recorde de marco (8 particulares), decisoes comerciais, pacotes P/M/G, regras de preco, equipamentos confirmados, PPT de vendas e indicacao Ludus Health.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRESSO ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label label-green">Progresso Real</div>
+      <h2>O que ja mudou<br>desde o inicio</h2>
+      <p>Resultados concretos da mentoria. Nao e teoria — e o que ja esta acontecendo.</p>
+    </div>
+
+    <div class="progress-grid">
+      <div class="glass-card progress-card">
+        <h4>Recorde: 8 Particulares em Marco</h4>
+        <p>Antes da mentoria: media de 5 a 7 consultas particulares por mes. Em marco de 2026, Thiago bateu 8 — recorde pessoal. A transicao ja comecou.</p>
+      </div>
+      <div class="glass-card progress-card">
+        <h4>Meta Abril: 12 Particulares</h4>
+        <p>Meta conservadora: 12. Meta ideal: 16. Se atingir 12, ja valida o modelo e prova que o crescimento e consistente. Foco total em abril.</p>
+      </div>
+      <div class="glass-card progress-card">
+        <h4>Reuniao de Alinhamento com Time</h4>
+        <p>Thiago reuniu o time e alinhou papeis, posicionamento e processo. Primeiro passo para sair da operacao e ir para o estrategico.</p>
+      </div>
+      <div class="glass-card progress-card">
+        <h4>SPIN com Secretaria</h4>
+        <p>Comecou a aplicar SPIN Selling com a secretaria. Monitorando conversas, avaliando tom e velocidade. Olhar de dono no WhatsApp.</p>
+      </div>
+    </div>
+
+    <div class="quote-block" style="margin-top:0;">
+      <p>"Descobri o caminho, sei a direcao, ainda nao acertei a mao."</p>
+      <div class="auth">— Dr. Thiago Blaya, Reuniao 3</div>
     </div>
   </div>
 </section>
@@ -884,15 +1124,15 @@ img { display:block; max-width:100%; }
     </div>
 
     <div class="num-grid">
-      <div class="glass-card num-card"><div class="num warm">~5</div><div class="nl">Particulares/mes</div></div>
-      <div class="glass-card num-card"><div class="num warm">R$900</div><div class="nl">Consulta particular</div></div>
+      <div class="glass-card num-card"><div class="num green">~8</div><div class="nl">Particulares/mes (recorde marco)</div></div>
+      <div class="glass-card num-card"><div class="num warm">R$900</div><div class="nl">Consulta particular (firme)</div></div>
       <div class="glass-card num-card"><div class="num warm">R$108</div><div class="nl">Consulta convenio</div></div>
       <div class="glass-card num-card"><div class="num warm">~5%</div><div class="nl">% Particular</div></div>
       <div class="glass-card num-card"><div class="num warm">40m²</div><div class="nl">Sala atual</div></div>
-      <div class="glass-card num-card"><div class="num warm">~R$5k</div><div class="nl">Investimento mkt</div></div>
+      <div class="glass-card num-card"><div class="num warm">Mai/26</div><div class="nl">Deadline convenio (cirurgias)</div></div>
     </div>
 
-    <h3 style="font-size:20px;font-weight:700;margin-bottom:28px;">Termometro de Maturidade</h3>
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:28px;">Termometro de Maturidade <span style="font-size:12px;font-weight:600;color:var(--warm-dark);background:var(--orange-bg);border:1px solid var(--orange-border);padding:3px 12px;border-radius:100px;vertical-align:middle;margin-left:8px;">REUNIAO 3</span></h3>
     <div class="score-wrap">
       <div class="s-row"><span class="s-name">Posicionamento Digital (Instagram)</span><div class="s-bar"><div class="s-fill low" style="width:20%"></div></div><span class="s-val c-red">2/10</span></div>
       <div class="s-row"><span class="s-name">Produto Empacotado</span><div class="s-bar"><div class="s-fill low" style="width:10%"></div></div><span class="s-val c-red">1/10</span></div>
@@ -909,13 +1149,13 @@ img { display:block; max-width:100%; }
     <h3 style="font-size:20px;font-weight:700;margin-bottom:28px;">Diagnostico Detalhado</h3>
     <div class="d-grid">
       <div class="glass-card d-card crit"><h4>Instagram Incongruente</h4><p>Anuncios antigos no Facebook vendendo varizes por convenio. Perfil nao conversa com posicionamento premium. Falta bio estrategica, grid intencional e conteudo de autoridade.</p></div>
-      <div class="glass-card d-card crit"><h4>Sem Produto Definido</h4><p>Nao existe protocolo empacotado com nome proprio. Vende procedimento avulso, nao transformacao. Limita preco, desejo e recorrencia.</p></div>
-      <div class="glass-card d-card warn"><h4>Trafego Amador</h4><p>R$ 3-4k impulsionando sem estrategia + R$ 1.200 Google Ads com profissional de R$ 450. Sem gestor profissional. Sem rastreamento de ROI.</p></div>
-      <div class="glass-card d-card crit"><h4>Atendimento ao Lead Fragil</h4><p>Secretaria sem script, sem protocolo de ligacao, sem quebra de objecao. Leads atendidos por texto — nao por ligacao ou video.</p></div>
+      <div class="glass-card d-card crit"><h4>Sem Produto Definido</h4><p>Nao existe protocolo empacotado com nome proprio. Vende procedimento avulso, nao transformacao. Limita preco, desejo e recorrencia. Pacotes P/M/G em construcao.</p></div>
+      <div class="glass-card d-card warn"><h4>Trafego Amador</h4><p>R$ 3-4k impulsionando sem estrategia + R$ 1.200 Google Ads com profissional de R$ 450. Sem gestor profissional. Ludus Health indicada como agencia.</p></div>
+      <div class="glass-card d-card crit"><h4>Atendimento ao Lead Fragil</h4><p>Secretaria sem script, sem protocolo de ligacao, sem quebra de objecao. Leads atendidos por texto — nao por ligacao ou video. Treinamento agendado.</p></div>
       <div class="glass-card d-card warn"><h4>Ju Sobrecarregada</h4><p>Esposa acumula: Instagram, WhatsApp, financeiro, automacao, edicao. Gargalo humanamente impossivel de sustentar.</p></div>
-      <div class="glass-card d-card warn"><h4>Sem Rastreamento</h4><p>Sem controle de leads, origem, conversao. Secretaria sem dados na ponta da lingua. Impossivel escalar sem medir.</p></div>
-      <div class="glass-card d-card opp"><h4>Oportunidade: Sala ao Lado</h4><p>Dobrar clinica: 40m² para 80m². Valor caiu de R$ 400k para ~R$ 300k. 100k entrada + parcelas. Shopping ideal para publico feminino. Sugestao para quando tiver capital disponivel.</p></div>
-      <div class="glass-card d-card opp"><h4>Oportunidade: Transicao Total para Particular</h4><p>A maior alavanca de resultado: migrar 100% da agenda para o particular. Com produto empacotado, funil e time ajustado, e possivel faturar o mesmo (ou mais) trabalhando muito menos. Liberdade de agenda, ticket alto e qualidade de vida.</p></div>
+      <div class="glass-card d-card warn"><h4>Preco dado por WhatsApp</h4><p>Ate agora, Ju dava preco por WhatsApp/PDF. Decidido na Reuniao 3: Thiago da o preco pessoalmente, olho no olho. Mudanca critica para conversao.</p></div>
+      <div class="glass-card d-card opp"><h4>Oportunidade: Sala ao Lado</h4><p>Dobrar clinica: 40m² para 80m². Valor caiu de R$ 400k para ~R$ 300k. 100k entrada + parcelas. Se expandir, estrutura fisica vai de 6 para 10/10.</p></div>
+      <div class="glass-card d-card opp"><h4>Oportunidade: Deadline Convenio Mai/26</h4><p>Cirurgias por convenio so ate maio 2026. Aneurisma: nao mais por convenio. Forca a transicao — pressao positiva para migrar 100% particular.</p></div>
     </div>
   </div>
 </section>
@@ -945,11 +1185,11 @@ img { display:block; max-width:100%; }
         <h3>O Cirurgiao do Convenio</h3>
         <ul>
           <li><span class="dot"></span>90-95% da receita vem de convenio (R$ 108/consulta)</li>
-          <li><span class="dot"></span>No maximo 5 pacientes particulares por mes</li>
+          <li><span class="dot"></span>8 pacientes particulares em marco (recorde, antes era ~5)</li>
           <li><span class="dot"></span>Sem produto empacotado — vende procedimento avulso</li>
           <li><span class="dot"></span>Instagram sem posicionamento, anuncios antigos de convenio</li>
           <li><span class="dot"></span>Trafego amador, sem gestor profissional</li>
-          <li><span class="dot"></span>Secretaria atende leads por texto, sem script</li>
+          <li><span class="dot"></span>Preco dado por WhatsApp pela Ju (nao pelo medico)</li>
           <li><span class="dot"></span>Esposa acumula 5+ funcoes</li>
           <li><span class="dot"></span>Sem rastreamento de metricas</li>
           <li><span class="dot"></span>Sala de 40m², sem prova social</li>
@@ -961,13 +1201,13 @@ img { display:block; max-width:100%; }
         <ul>
           <li><span class="dot"></span>50% a 100% da receita vindo de particular</li>
           <li><span class="dot"></span>10 a 20 pacientes particulares por mes</li>
-          <li><span class="dot"></span>Protocolo proprio com nome, pagina e criativos</li>
+          <li><span class="dot"></span>Protocolo Lipedema com 3 pacotes (P/M/G)</li>
           <li><span class="dot"></span>Instagram de autoridade, congruente</li>
-          <li><span class="dot"></span>Gestor de trafego com ROI rastreado</li>
-          <li><span class="dot"></span>Closer treinada com script e ligacao</li>
+          <li><span class="dot"></span>Ludus Health como agencia (trafego + scripts + SDR)</li>
+          <li><span class="dot"></span>Thiago da preco pessoalmente, olho no olho</li>
           <li><span class="dot"></span>Funcoes distribuidas, time organizado</li>
           <li><span class="dot"></span>Dashboard de metricas completo</li>
-          <li><span class="dot"></span>Todas as consultas a R$ 900 — sem desconto</li>
+          <li><span class="dot"></span>Todas as consultas a R$ 900 — sem desconto, sem excecao</li>
         </ul>
       </div>
     </div>
@@ -982,10 +1222,10 @@ img { display:block; max-width:100%; }
         <h3>Hemodialise da Base</h3>
         <ul>
           <li><span class="dot"></span>Limpar convenio e plantao da agenda</li>
-          <li><span class="dot"></span>Migrar para particular puro</li>
-          <li><span class="dot"></span>Empatar o faturamento atual (~R$ 105k) trabalhando MUITO menos</li>
-          <li><span class="dot"></span>Montar produto, funil, time e processo</li>
-          <li><span class="dot"></span>Com 10 pacientes + 3 cirurgias a R$ 35k, ja empata</li>
+          <li><span class="dot"></span>Migrar para particular puro (deadline convenio: maio/26)</li>
+          <li><span class="dot"></span>10 pacientes x R$ 900 + 30% cirurgia x R$ 35k = ~R$ 114k/mes</li>
+          <li><span class="dot"></span>Montar produto (3 pacotes), funil, time e processo</li>
+          <li><span class="dot"></span>Thiago da preco pessoalmente, vende transformacao</li>
         </ul>
       </div>
       <div class="glass-card phase-box p2">
@@ -995,7 +1235,7 @@ img { display:block; max-width:100%; }
           <li><span class="dot"></span>Funil rodando, produto validado, closer treinada</li>
           <li><span class="dot"></span>Voltar a trabalhar 100% — agora tudo particular</li>
           <li><span class="dot"></span>Dobrar ou triplicar o faturamento</li>
-          <li><span class="dot"></span>Com 20 pacientes + 12 cirurgias (60%) a R$ 35k = R$ 438k/mes</li>
+          <li><span class="dot"></span>20 pacientes + 60% conversao x R$ 35k = R$ 438k/mes</li>
           <li><span class="dot"></span>Expansao de sala, time, esteira de recorrencia</li>
         </ul>
       </div>
@@ -1023,6 +1263,113 @@ img { display:block; max-width:100%; }
           <li style="font-size:15px;color:var(--green);padding:8px 0;display:flex;align-items:center;gap:12px;line-height:1.5;font-weight:700;"><span style="width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;"></span>Total maximo: R$ 438.000/mes — com funil maduro e closer treinada</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============ DECISOES COMERCIAIS (NOVO - REUNIAO 3) ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label label-warm">Decisoes Comerciais — Reuniao 3</div>
+      <h2>Como Vender:<br>As Novas Regras</h2>
+      <p>Decisoes tomadas em 02/04/2026. Sao regras, nao sugestoes. A partir de agora, e assim que funciona.</p>
+    </div>
+
+    <div class="rule-grid">
+      <div class="glass-card rule-card">
+        <h4>Thiago da o preco pessoalmente</h4>
+        <p>Acabou o preco por WhatsApp ou PDF pela Ju. O medico olha no olho da paciente e apresenta o valor. Na consulta, com autoridade e posicionamento. Isso muda tudo na conversao.</p>
+      </div>
+      <div class="glass-card rule-card">
+        <h4>R$ 900 firme, sem desconto</h4>
+        <p>Nao importa se a paciente tem convenio ou nao. A consulta particular custa R$ 900. Sem negociacao, sem concessao. Preco unico. Posicionamento premium nao admite desconto.</p>
+      </div>
+      <div class="glass-card rule-card">
+        <h4>Vender por MES, nao por trimestre</h4>
+        <p>R$ 4.000/mes soa mais acessivel que R$ 12.000 em 3 meses. A percepcao muda. O compromisso mensal tambem gera recorrencia e vinculo com o protocolo.</p>
+      </div>
+      <div class="glass-card rule-card">
+        <h4>Vender transformacao, nao procedimento</h4>
+        <p>"Voce nao vai fazer criolipólise. Voce vai fazer um protocolo completo que vai mudar sua relacao com seu corpo." Quando a paciente falar "caro": posicionar como responsabilidade medica.</p>
+      </div>
+      <div class="glass-card rule-card">
+        <h4>Zero desconto a vista</h4>
+        <p>Removido qualquer desconto por pagamento a vista do material. Premium nao negocia. O valor e o valor. Se nao cabe, nao e a paciente certa.</p>
+      </div>
+      <div class="glass-card rule-card">
+        <h4>PPT de Vendas no Monitor</h4>
+        <p>Thiago apresenta o protocolo no monitor da clinica durante a consulta. Pitch verbal + visual. Material sera refinado por Patrick. Formato: apresentacao premium, nao tabela de precos.</p>
+      </div>
+    </div>
+
+    <!-- PACOTES LIPEDEMA -->
+    <h3 style="font-size:22px;font-weight:700;margin-bottom:8px;">Pacotes do Protocolo Lipedema</h3>
+    <p style="font-size:15px;color:var(--w40);margin-bottom:8px;line-height:1.7;">3 opcoes para a paciente escolher. Ancora no Premium, converte no Intermediario.</p>
+
+    <div class="pkg-grid">
+      <div class="glass-card pkg-card pkg-basic">
+        <div class="pkg-label">Basico (P)</div>
+        <h3 style="color:var(--accent);">~R$ 4k<span style="font-size:16px;font-weight:400;color:var(--w40);">/mes</span></h3>
+        <div class="pkg-period">Tratamento conservador</div>
+        <ul>
+          <li>Avaliacao vascular completa</li>
+          <li>Bioimpedancia segmentar</li>
+          <li>Protocolo nutricional</li>
+          <li>Criolipólise</li>
+          <li>Bota pneumatica</li>
+          <li>Acompanhamento mensal</li>
+        </ul>
+      </div>
+      <div class="glass-card pkg-card pkg-inter">
+        <div class="pkg-label">Intermediario (M)</div>
+        <h3 style="color:var(--warm);">Sob medida</h3>
+        <div class="pkg-period">Conservador + procedimentos extras</div>
+        <ul>
+          <li>Tudo do Basico</li>
+          <li>Injetaveis (peptideos + vitaminas)</li>
+          <li>Frequencia de crioterapia aumentada</li>
+          <li>Camera termica para controle</li>
+          <li>Grupo de suporte exclusivo</li>
+          <li>Reavaliacao quinzenal</li>
+        </ul>
+      </div>
+      <div class="glass-card pkg-card pkg-premium">
+        <div class="pkg-label">Premium (G)</div>
+        <h3 style="color:var(--warm-dark);">Ticket maximo</h3>
+        <div class="pkg-period">Protocolo completo + Ultraformer</div>
+        <ul>
+          <li>Tudo do Intermediario</li>
+          <li>Ultraformer (alugado ~R$ 2k/sessao)</li>
+          <li>Acompanhamento semanal</li>
+          <li>Relatorio + plano de manutencao</li>
+          <li>Possibilidade de transicao cirurgica</li>
+          <li>Experiencia full premium</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EQUIPAMENTOS CONFIRMADOS -->
+    <h3 style="font-size:20px;font-weight:700;margin-bottom:8px;">Equipamentos Confirmados</h3>
+    <p style="font-size:15px;color:var(--w40);margin-bottom:8px;line-height:1.7;">Inventario validado na reuniao 3. O que tem, o que aluga e o que entra em qual pacote.</p>
+
+    <table class="eq-table">
+      <thead><tr><th>Equipamento</th><th>Status</th><th>Observacao</th></tr></thead>
+      <tbody>
+        <tr><td>Criolipólise</td><td><span class="eq-status own">Proprio</span></td><td>Comprado recentemente. Entra em todos os pacotes.</td></tr>
+        <tr><td>Bota Pneumatica</td><td><span class="eq-status own">Proprio</span></td><td>Compressoterapia. Basico de todos os protocolos.</td></tr>
+        <tr><td>Bioimpedancia</td><td><span class="eq-status own">Proprio</span></td><td>Controle de evolucao. Metricas tangiveis para a paciente.</td></tr>
+        <tr><td>Camera Termica</td><td><span class="eq-status own">Proprio</span></td><td>Diagnostico visual. Antes/depois impactante para prova social.</td></tr>
+        <tr><td>Ultraformer</td><td><span class="eq-status rent">Alugado (~R$ 2k/sessao)</span></td><td>Somente no pacote Premium. Custo repassado no ticket.</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:13px;color:var(--w40);margin-top:-28px;line-height:1.6;"><strong>BodyShape:</strong> Parceria removida dos pacotes para simplificar. Pode ser reintroduzida depois.</p>
+
+    <div class="quote-block">
+      <p>"A paciente nao ta comprando criolipólise. Ela ta comprando a vida dela de volta. A gente vende a transformacao, nao a maquina."</p>
+      <div class="auth">— Patrick, Reuniao 3</div>
     </div>
   </div>
 </section>
@@ -1177,7 +1524,7 @@ img { display:block; max-width:100%; }
     <div class="section-head">
       <div class="label label-purple">Nomes para o Produto</div>
       <h2>4 Opcoes para voce<br>escolher</h2>
-      <p>Cada nome foi pensado para funcionar em anuncios, Instagram, landing page e na boca da paciente. Escolha o que mais te representa.</p>
+      <p>Cada nome foi pensado para funcionar em anuncios, Instagram, landing page e na boca da paciente. Escolha o que mais te representa. <strong style="color:var(--warm);">Thiago: traga o nome escolhido na proxima reuniao.</strong></p>
     </div>
 
     <div class="name-option glass-card">
@@ -1249,9 +1596,9 @@ img { display:block; max-width:100%; }
         <p class="p-desc">Transformar o que voce ja faz em um produto com nome, identidade e valor percebido. A paciente compra transformacao, nao procedimento.</p>
         <div class="glass-card tl">
           <div class="tk"><div class="tk-box"></div><div><h5>Definir o protocolo principal (Lipedema)</h5><p>Sugestao: mapear diagnostico, acompanhamento nutricional, injetaveis, crioterapia, exames, bioimpedancia. Documentar cada etapa — isso vira o "metodo". Voce adapta conforme sua pratica.</p></div></div>
-          <div class="tk"><div class="tk-box"></div><div><h5>Escolher o nome do produto</h5><p>Trouxemos 4 sugestoes para te inspirar: Levita, Soltura, Contorno Leve ou Reinna. Pode ser uma dessas ou outro nome que faca sentido pra voce. O importante e ser unico, proprietario e gerar curiosidade.</p></div></div>
-          <div class="tk"><div class="tk-box"></div><div><h5>Definir a promessa de transformacao</h5><p>Sugestao: bater na estetica E na dor. O que muda na vida da paciente? Liberdade, autoestima, fim da dor, pernas leves. Pense no que voce mais ve no consultorio.</p></div></div>
-          <div class="tk"><div class="tk-box"></div><div><h5>Precificar como protocolo completo</h5><p>Sugestao de faixa: R$ 20.000 a R$ 35.000 pelo pacote de 4 meses. Voce define o escopo e o ticket final conforme os componentes que incluir. Vamos construir isso juntos.</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Escolher o nome do produto</h5><p>Trouxemos 4 sugestoes (Levita, Soltura, Contorno Leve, Reinna) — use como inspiracao ou crie o seu. <strong>Thiago: pensar no nome e trazer na proxima.</strong></p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Definir 3 pacotes (P/M/G)</h5><p>Basico (~R$ 4k/mes conservador), Intermediario (+ procedimentos) e Premium (+ Ultraformer). Vender por mes, nao por trimestre. Ancora no Premium.</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Precificar como protocolo completo</h5><p>Faixa: R$ 20.000 a R$ 35.000 pelo pacote de 4 meses. Voce define o escopo e o ticket final conforme os componentes que incluir.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Criar produto cirurgico premium</h5><p>Sugestao: para pacientes que precisam de cirurgia apos o protocolo conservador. Acompanhamento completo pre e pos. Ticket e escopo a definir juntos.</p></div></div>
         </div>
       </div>
@@ -1261,7 +1608,7 @@ img { display:block; max-width:100%; }
         <div class="p-head"><h3 class="p-title">Posicionamento no Instagram</h3><span class="p-tag urg">Prioridade Maxima</span></div>
         <p class="p-desc">O Instagram e o cartao de visita. O lead vai direto no perfil para validar. Se nao conversa com o premium, perde a venda antes de atender.</p>
         <div class="glass-card tl">
-          <div class="tk"><div class="tk-box"></div><div><h5><span class="urg-tag"><span class="pls"></span>EMERGENCIAL</span> Limpar anuncios antigos</h5><p>Remover anuncios no Facebook que vendem varizes por convenio. Mata o posicionamento premium. Tirar QUALQUER coisa que atrele ao SUS ou convenio.</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5><span class="urg-tag"><span class="pls"></span>EMERGENCIAL</span> Limpar anuncios antigos + referencias SUS</h5><p>Remover anuncios no Facebook que vendem varizes por convenio. Tirar QUALQUER coisa que atrele ao SUS, convenio ou preco baixo. Decidido na Reuniao 3.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Reescrever a bio</h5><p>Quem voce e + transformacao que entrega + autoridade. Claro que voce e premium e transforma vidas.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Grid das 10-12 primeiras postagens</h5><p>Cartao de visita visual: prova social, autoridade, bastidores, produto, sua historia. Qualidade > quantidade.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Destaques estrategicos</h5><p>"Meu Metodo" / "Resultados" / "Depoimentos" / "Clinica" / "Sobre Mim". Mini funil de convencimento.</p></div></div>
@@ -1279,28 +1626,29 @@ img { display:block; max-width:100%; }
           <div class="tk"><div class="tk-box"></div><div><h5>Consultoria de estilo (Terno)</h5><p>Imagem premium completa: roupa para videos, consultas, eventos. Congruencia visual com o posicionamento.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Banco de roteiros por categoria</h5><p>Autoridade, Transformacao, Educacao, Prova Social, Bastidores. Roteiros pre-prontos.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Gravar durante atendimentos</h5><p>Tayane filma consultas (paciente de costas), conversas, bastidores. Intencional.</p></div></div>
-          <div class="tk"><div class="tk-box"></div><div><h5>Coletar prova social</h5><p>Todo retorno satisfeito: pedir depoimento. "Como voce era antes? Como esta agora?"</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Coletar prova social</h5><p>Todo retorno satisfeito: pedir depoimento. "Como voce era antes? Como esta agora?" Pegar mais depoimentos — prioridade.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Sessao presencial com Patrick (19/04)</h5><p>Patrick bloqueou a agenda para o dia 19 de abril. Videomaker, oratoria, postura. Gravar lote de conteudos.</p></div></div>
         </div>
       </div>
 
       <!-- F4 -->
       <div class="phase"><div class="p-num">4</div>
-        <div class="p-head"><h3 class="p-title">Pagina + Criativos</h3><span class="p-tag norm">Semana 2-3</span></div>
-        <p class="p-desc">O produto precisa de uma casa. Landing page que venda transformacao. Criativos que gerem desejo.</p>
+        <div class="p-head"><h3 class="p-title">Pagina + Criativos + PPT de Vendas</h3><span class="p-tag norm">Semana 2-3</span></div>
+        <p class="p-desc">O produto precisa de uma casa. Landing page que venda transformacao. PPT de vendas para apresentar no consultorio. Criativos que gerem desejo.</p>
         <div class="glass-card tl">
           <div class="tk"><div class="tk-box"></div><div><h5>Landing Page do protocolo</h5><p>Headline, dor, metodo, depoimentos, CTA para agendar. Design premium e congruente.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>5+ criativos para trafego</h5><p>Video, carrossel, estatico, depoimento, antes/depois. Cada um fala com uma dor do ICP.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Pagina para cirurgia premium</h5><p>Landing page do protocolo cirurgico. Acompanhamento completo pre e pos.</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Melhorar PPT de Vendas (Patrick)</h5><p>Thiago + Ju criaram o PPT. Patrick vai refinar. Formato: Thiago apresenta no monitor da clinica durante pitch verbal. Nao e tabela de precos — e apresentacao premium.</p></div></div>
         </div>
       </div>
 
       <!-- F5 -->
       <div class="phase"><div class="p-num">5</div>
         <div class="p-head"><h3 class="p-title">Trafego Pago Profissional</h3><span class="p-tag norm">Semana 3-4</span></div>
-        <p class="p-desc">Sair do impulsionar. Gestor de trafego, segmentacao, criativos e rastreamento. Temos uma agencia parceira para facilitar.</p>
+        <p class="p-desc">Sair do impulsionar. Ludus Health indicada como agencia parceira. Trafego, scripts, SDR, social selling e estrategia de produto.</p>
         <div class="glass-card tl">
-          <div class="tk"><div class="tk-box"></div><div><h5>Contratar gestor de trafego (agencia parceira CPP)</h5><p>Meta Ads com leads qualificados. Mulheres, Porto Alegre, interesses alinhados. A Renata vai entrar em contato.</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Reuniao com Ludus Health (Renata apresenta)</h5><p>Patrick e Matheus indicaram a Ludus Health. Servicos: trafego pago, scripts, estrategia de produto, landing pages, SDR terceirizado, social selling.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Otimizar Google Ads</h5><p>Aparecer entre os 3 primeiros. Escalar conforme ROI se prove.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Rastreamento completo</h5><p>UTMs em tudo. Saber de onde vem cada lead.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Meta de ROI e escala</h5><p>R$ 5k → 10-20 particulares. Provar, escalar.</p></div></div>
@@ -1310,14 +1658,14 @@ img { display:block; max-width:100%; }
       <!-- F6 -->
       <div class="phase"><div class="p-num">6</div>
         <div class="p-head"><h3 class="p-title">Script e Processo Comercial</h3><span class="p-tag urg">Prioridade Maxima</span></div>
-        <p class="p-desc">Coracao do faturamento. Ligacao converte mais que texto. Script orienta sem engessar. Acompanhamento fecha.</p>
+        <p class="p-desc">Coracao do faturamento. Thiago da preco pessoalmente. Closer liga em 5 min. Script orienta sem engessar.</p>
         <div class="glass-card tl">
-          <div class="tk"><div class="tk-box"></div><div><h5>Treinamento da secretaria com Renata</h5><p>Reuniao de 1 hora. Renata senta com a Elayne (Thiago pode participar). Como recepcionar leads, tempo ideal, quebra de objecao, script basico.</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Treinamento da secretaria (script + call protocol)</h5><p>Agendado. Como recepcionar leads, tempo ideal, quebra de objecao, script basico. Protocolo de ligacao completo.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Script de atendimento ao lead</h5><p>Cumprimentar, qualificar, quebrar objecoes ("ta caro", "vou pensar", "e pelo convenio?"), direcionar agendamento.</p></div></div>
-          <div class="tk"><div class="tk-box"></div><div><h5>Protocolo de LIGACAO</h5><p>Lead = ligar em 5 min. Ligacao converte 5x mais que texto.</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Sessao individual com Matheus</h5><p>Matheus vai ensinar como ele vende: rapport, oferta irresistivel, fechamento. Sessao 1:1 com Thiago.</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Sessao individual com Patrick (comercial)</h5><p>Treinamento comercial intensivo, prioridade maxima. Proxima semana. Foco em como Thiago vende na consulta.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Treinar Tayane como Closer</h5><p>Liga, quebra objecao, agenda. Tirar funcao de conversao da Elayne.</p></div></div>
-          <div class="tk"><div class="tk-box"></div><div><h5>Olhar de dono no WhatsApp</h5><p>Ler conversas, ver velocidade/tom. Ficar incomodado. Esse olhar separa amador de premium.</p></div></div>
-          <div class="tk"><div class="tk-box"></div><div><h5>Protocolo de follow-up</h5><p>24h sem resposta: ligar. "Vou pensar": 48h. Faltou: ligar no dia. 3 tentativas minimas.</p></div></div>
+          <div class="tk"><div class="tk-box"></div><div><h5>Olhar de dono no WhatsApp</h5><p>Ler conversas, ver velocidade/tom. Aplicar SPIN. Ficar incomodado. Esse olhar separa amador de premium.</p></div></div>
           <div class="tk"><div class="tk-box"></div><div><h5>Cobrar antecipado</h5><p>Premium paga antes. Elimina faltas, filtra, posiciona valor.</p></div></div>
         </div>
       </div>
@@ -1360,11 +1708,11 @@ img { display:block; max-width:100%; }
     <table class="t-table">
       <thead><tr><th>Pessoa</th><th>Funcao Atual</th><th>Funcao Ideal</th><th>Obs</th></tr></thead>
       <tbody>
-        <tr><td>Dr. Thiago Blaya</td><td>Faz tudo + atende + opera</td><td>Atendimento premium + Cirurgia + Rosto da marca</td><td>Sair da operacao, ir para o estrategico</td></tr>
-        <tr><td>Juliana (Ju)</td><td>Instagram + WhatsApp + Financeiro + Automacao + Edicao</td><td>Gestao + Financeiro + Supervisao</td><td>Formacao em adm + pos gestao clinicas</td></tr>
-        <tr><td>Elayne</td><td>Agendamento + Telefone + WhatsApp</td><td>Recepcao + Agendamento + Metricas</td><td>Treinamento com Renata (1h). Tirar conversao</td></tr>
-        <tr><td>Tayane</td><td>Curativos + Crioterapia + Injetaveis</td><td><strong>Closer</strong> + Procedimentos</td><td>Talento natural. Treinar como Closer</td></tr>
-        <tr class="nh"><td>Gestor de Trafego ✦</td><td>—</td><td>Agencia parceira CPP</td><td>Meta Ads + Google Ads. Relatorio semanal</td></tr>
+        <tr><td>Dr. Thiago Blaya</td><td>Faz tudo + atende + opera</td><td>Atendimento premium + Cirurgia + Rosto da marca + DA O PRECO</td><td>Sair da operacao, ir para o estrategico. Preco pessoalmente.</td></tr>
+        <tr><td>Juliana (Ju)</td><td>Instagram + WhatsApp + Financeiro + Automacao + Edicao</td><td>Gestao + Financeiro + Supervisao</td><td>Formacao em adm + pos gestao clinicas. Nao da mais preco por WhatsApp.</td></tr>
+        <tr><td>Elayne</td><td>Agendamento + Telefone + WhatsApp</td><td>Recepcao + Agendamento + Metricas</td><td>Treinamento agendado. Script basico. Tirar conversao.</td></tr>
+        <tr><td>Tayane</td><td>Curativos + Crioterapia + Injetaveis</td><td><strong>Closer</strong> + Procedimentos</td><td>Talento natural. Treinar como Closer.</td></tr>
+        <tr class="nh"><td>Ludus Health ✦</td><td>—</td><td>Agencia: trafego + scripts + SDR + social selling</td><td>Indicada por Patrick e Matheus. Renata apresenta.</td></tr>
         <tr class="nh"><td>Social Media ✦</td><td>—</td><td>Terceirizado</td><td>Edicao, publicacao, planejamento</td></tr>
       </tbody>
     </table>
@@ -1383,39 +1731,86 @@ img { display:block; max-width:100%; }
     </div>
 
     <div>
-      <div class="f-step"><div class="f-num">1</div><div class="glass-card f-bar fb-blue"><div><h5>Atracao (Trafego)</h5><div class="fd">Meta/Google Ads → Lead clica → WhatsApp ou LP</div></div><div class="fw">Gestor de Trafego</div></div></div>
+      <div class="f-step"><div class="f-num">1</div><div class="glass-card f-bar fb-blue"><div><h5>Atracao (Trafego)</h5><div class="fd">Meta/Google Ads → Lead clica → WhatsApp ou LP</div></div><div class="fw">Ludus Health</div></div></div>
       <div class="f-step"><div class="f-num">2</div><div class="glass-card f-bar fb-purple"><div><h5>Validacao (Instagram)</h5><div class="fd">Lead entra no perfil → Valida autoridade → Decide</div></div><div class="fw">Thiago + Social Media</div></div></div>
       <div class="f-step"><div class="f-num">3</div><div class="glass-card f-bar fb-orange"><div><h5>Conversao (Abordagem)</h5><div class="fd">Lead manda msg → Closer liga em 5 min → Agenda</div></div><div class="fw">Tayane (Closer)</div></div></div>
-      <div class="f-step"><div class="f-num">4</div><div class="glass-card f-bar fb-gold"><div><h5>Encantamento (Consulta)</h5><div class="fd">Experiencia premium → Vende transformacao → Fecha protocolo</div></div><div class="fw">Dr. Thiago + Elayne</div></div></div>
-      <div class="f-step"><div class="f-num">5</div><div class="glass-card f-bar fb-green"><div><h5>Retencao (Esteira)</h5><div class="fd">Protocolo → Injetaveis → Crioterapia → Cirurgia → Manutencao</div></div><div class="fw">Dr. Thiago + Tayane</div></div></div>
+      <div class="f-step"><div class="f-num">4</div><div class="glass-card f-bar fb-gold"><div><h5>Encantamento (Consulta + Preco)</h5><div class="fd">Experiencia premium → PPT no monitor → Thiago da preco olho no olho → Fecha</div></div><div class="fw">Dr. Thiago</div></div></div>
+      <div class="f-step"><div class="f-num">5</div><div class="glass-card f-bar fb-green"><div><h5>Retencao (Esteira)</h5><div class="fd">Protocolo P/M/G → Injetaveis → Crioterapia → Cirurgia → Manutencao</div></div><div class="fw">Dr. Thiago + Tayane</div></div></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ============ THIS WEEK ============ -->
+<!-- ============ THIS WEEK (ATUALIZADO REUNIAO 3) ============ -->
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="label label-warm">Acao Imediata</div>
+      <div class="label label-warm">Acao Imediata — Pos Reuniao 3</div>
       <h2>O que fazer<br>esta semana</h2>
-      <p>Nao espere tudo pronto. Essas acoes podem ser executadas agora.</p>
+      <p>Acoes definidas em 02/04/2026. Executar antes da proxima reuniao.</p>
     </div>
 
     <div class="wk">
-      <div class="wk-item"><div class="wk-n">1</div><div><h5>Pensar no nome do produto</h5><p>Trouxemos 4 sugestoes (Levita, Soltura, Contorno Leve, Reinna) — use como inspiracao ou crie o seu. Traga opcoes na proxima reuniao.</p></div></div>
-      <div class="wk-item"><div class="wk-n">2</div><div><h5>Acompanhar a secretaria</h5><p>WhatsApp Business. Ler conversas. Avaliar velocidade, tom, qualidade. Vai incomodar — essa e a intencao.</p></div></div>
-      <div class="wk-item"><div class="wk-n">3</div><div><h5>Remover anuncios antigos</h5><p>Gerenciador de anuncios. Desativar tudo que vende convenio ou e incongruente. HOJE.</p></div></div>
-      <div class="wk-item"><div class="wk-n">4</div><div><h5>Pegar 2-3 depoimentos</h5><p>Pacientes satisfeitos: "Posso fazer umas perguntas?" Tayane filma, paciente de costas.</p></div></div>
-      <div class="wk-item"><div class="wk-n">5</div><div><h5>Agendar treinamento da secretaria</h5><p>Renata vai fazer 1h de treinamento com a Elayne. Script basico, quebra de objecao, recepcao de leads.</p></div></div>
-      <div class="wk-item"><div class="wk-n">6</div><div><h5>Pedir metricas da secretaria</h5><p>"Me manda o fechamento de particulares, quantos leads, de onde vieram." Se nao tiver, ja e diagnostico.</p></div></div>
-      <div class="wk-item"><div class="wk-n">7</div><div><h5>Agendar visagista + ensaio fotografico</h5><p>Sugestao: consultar um visagista online para acertar imagem pessoal. Depois, ensaio profissional para material de conteudo. Temos indicacoes se precisar.</p></div></div>
+      <div class="wk-item"><div class="wk-n">1</div><div><h5>Pensar no nome do produto Lipedema</h5><p>Trouxemos 4 sugestoes (Levita, Soltura, Contorno Leve, Reinna). Traga o nome escolhido ou crie o seu. Proximo passo: identidade visual e landing page.</p></div></div>
+      <div class="wk-item"><div class="wk-n">2</div><div><h5>Monitorar secretarias no WhatsApp (SPIN)</h5><p>Ler todas as conversas. Avaliar tom, velocidade, qualidade. Escutar ligacoes. Aplicar SPIN. Ficar incomodado — e o objetivo.</p></div></div>
+      <div class="wk-item"><div class="wk-n">3</div><div><h5>Remover anuncios antigos + referencias SUS</h5><p>Gerenciador de anuncios. Desativar tudo que vende convenio, SUS ou e incongruente com premium. URGENTE.</p></div></div>
+      <div class="wk-item"><div class="wk-n">4</div><div><h5>Comecar a dar preco pessoalmente</h5><p>A partir de agora, Thiago da o preco na consulta, olho no olho. Nao mais pela Ju, nao mais por WhatsApp, nao mais por PDF. Isso comeca HOJE.</p></div></div>
+      <div class="wk-item"><div class="wk-n">5</div><div><h5>Pegar mais depoimentos de pacientes</h5><p>Cada paciente satisfeito: pedir depoimento. Tayane filma, paciente de costas. Prova social e o combustivel do funil.</p></div></div>
+      <div class="wk-item"><div class="wk-n">6</div><div><h5>Sessao individual com Patrick (comercial)</h5><p>Proxima semana. Treinamento comercial intensivo: como vender na consulta, como dar preco, como lidar com objecao. Prioridade maxima.</p></div></div>
+      <div class="wk-item"><div class="wk-n">7</div><div><h5>Sessao individual com Matheus (vendas)</h5><p>Matheus ensina como ele vende: rapport, oferta irresistivel, fechamento. Sessao 1:1.</p></div></div>
+      <div class="wk-item"><div class="wk-n">8</div><div><h5>Agendar treinamento da secretaria</h5><p>Script + protocolo de ligacao + quebra de objecao. Treinamento com equipe especializada.</p></div></div>
+      <div class="wk-item"><div class="wk-n">9</div><div><h5>Sessao presencial 19/04 (confirmar)</h5><p>Patrick em Porto Alegre. Videomaker, oratoria, postura, gravacao em lote. Confirmar logistica e pauta.</p></div></div>
     </div>
 
     <div class="quote-block">
+      <p>"Eu sei que posso mudar a vida das pessoas, mas eu nao acredito."</p>
+      <div class="auth">— Dr. Thiago Blaya, Reuniao 3 — momento de virada</div>
+    </div>
+
+    <div class="quote-block" style="margin-top:24px;">
+      <p>"Quando voce fala 'caro', voce ta dizendo que a saude dela nao vale isso. Voce nao negocia porque comprometer a entrega e comprometer a paciente. Voce cobra o que cobra porque e o minimo pra fazer bem feito."</p>
+      <div class="auth">— Patrick, ensinando Thiago a responder objecao de preco</div>
+    </div>
+
+    <div class="quote-block" style="margin-top:24px;">
       <p>"Nao e em quanto tempo. E em quantas vezes. Feijao na panela normal demora duas horas. Na panela de pressao, 25 minutos."</p>
       <div class="auth">— Dr. Matheus</div>
+    </div>
+
+    <div class="quote-block" style="margin-top:24px;">
+      <p>"Ensina pro teu pai o que voce ta aprendendo. Quando voce ensina, voce internaliza. E ele vai cobrar R$ 1.500 na consulta dele."</p>
+      <div class="auth">— Patrick, sobre o pai de Thiago (ginecologista)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENTALIDADE (NOVO - REUNIAO 3) ============ -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label label-purple">Mentalidade — Trabalho em Andamento</div>
+      <h2>A Batalha Interna<br>do Cirurgiao Premium</h2>
+      <p>Thiago tem competencia tecnica 9/10. Mas a identidade premium esta em 4/10. Essa e a maior alavanca — e a mais dificil.</p>
+    </div>
+
+    <div class="d-grid">
+      <div class="glass-card d-card crit">
+        <h4>Sindrome do Impostor</h4>
+        <p>"Eu sei que posso mudar a vida das pessoas, mas eu nao acredito." Thiago reconhece a capacidade mas nao se ve como premium. Patrick e Matheus trabalharam forte nessa sessao. Correcao de crencas limitantes em tempo real (NLP).</p>
+      </div>
+      <div class="glass-card d-card warn">
+        <h4>Medo de Cobrar</h4>
+        <p>Ate agora, Ju dava o preco porque Thiago tinha dificuldade. A decisao de dar preco pessoalmente e tambem um exercicio de identidade. Cada vez que da o preco com firmeza, a crenca muda.</p>
+      </div>
+      <div class="glass-card d-card opp">
+        <h4>Compromisso Publico</h4>
+        <p>"Descobri o caminho, sei a direcao, ainda nao acertei a mao." Compartilhar a meta publicamente com o grupo gera comprometimento. Meta publica = mais forca. Combinado na reuniao.</p>
+      </div>
+      <div class="glass-card d-card opp">
+        <h4>Ensinar para Aprender</h4>
+        <p>Patrick sugeriu: ensine pro seu pai (ginecologista) o que voce esta aprendendo. Quando ensina, internaliza. Pai quer voltar a trabalhar — pode se posicionar e cobrar R$ 1.500/consulta.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1426,15 +1821,15 @@ img { display:block; max-width:100%; }
   <div class="cta-overlay"></div>
   <div class="cta-content">
     <h2>O mapa esta nas<br>suas maos,<br><span class="grad-warm">Dr. Thiago Blaya.</span></h2>
-    <p>Voce ja sabe voar. Agora e hora de parar de comer carnica e cacar como gaviao. A transicao comeca hoje.</p>
+    <p>Voce ja sabe voar. Agora e hora de parar de comer carnica e cacar como gaviao. Marco foi recorde. Abril vai ser maior. A transicao comeca hoje.</p>
     <div class="cta-btn">Mentoria Cirurgiao Particular Premium</div>
-    <p style="margin-top:24px;font-size:13px;color:var(--w40)">Dr. Matheus & Patrick Suyti — CPP — Abril 2026</p>
+    <p style="margin-top:24px;font-size:13px;color:var(--w40)">Dr. Matheus & Patrick Suyti — CPP — Abril 2026 — v3</p>
   </div>
 </section>
 
 <div class="footer">
   <div class="brand">CPP — Cirurgiao Particular Premium</div>
-  <p>Documento confidencial preparado exclusivamente para o Dr. Thiago Blaya.</p>
+  <p>Documento confidencial preparado exclusivamente para o Dr. Thiago Blaya. Atualizado apos Reuniao 3 (02/04/2026).</p>
 </div>
 
 <script>
